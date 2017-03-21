@@ -1,0 +1,149 @@
+{
+	"Company": {
+		"dataSchema": {
+			"_schema": "http://json-schema.org/draft-04/schema#",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"web": {
+					"type": "string"
+				}
+			},
+			"required": ["name"],
+			"type": "object",
+			"version": "1.0.0"
+		},
+		"uiSchema": {
+			"ui:order": ["name", "web", "description"],
+			"description": {
+				"ui:widget": "textarea"
+			}
+		}
+	},
+	"Skill": {
+		"dataSchema": {
+			"_schema": "http://json-schema.org/draft-04/schema#",
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"skillCategories": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {},
+						"additionalProperties": {
+							"type": "boolean"
+						}
+					}
+				},
+				"skillUnits": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {},
+						"additionalProperties": {
+							"type": "boolean"
+						}
+					}
+				}
+			},
+			"required": [
+				"name",
+				"skillCategories",
+				"skillUnits"
+			]
+		},
+		"uiSchema": {
+			"ui:order": ["name", "*"],
+			"aliasTo": {
+				"ui:field": "dbKeySelector"
+			},
+			"aliasOf": {
+				"ui:field": "dbKeySelector"
+			},
+			"skillCategories": {
+				"ui:field": "dbKeySelector"
+			},
+			"skillUnits": {
+				"ui:field": "dbKeySelector"
+			}
+		},
+		"dalSchema": {
+			"aliasOf": {
+				"nodeId": "skills",
+				"modelId": "Skill"
+			},
+			"aliasTo": {
+				"nodeId": "skills",
+				"modelId": "Skill"
+			},
+			"skillCategories": {
+				"nodeId": "skillCategories",
+				"modelId": "SkillCategory"
+			},
+			"skillUnits": {
+				"nodeId": "skillUnits",
+				"modelId": "SkillUnit"
+			}
+		}
+	},
+	"SkillUnit": {
+		"dataSchema": {
+			"_schema": "http://json-schema.org/draft-04/schema#",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"singularUnitName": {
+					"type": "string"
+				},
+				"pluralUnitName": {
+					"type": "string"
+				},
+				"unitType": {
+					"type": "string"
+				}
+			},
+			"required": ["name", "unitType", "singularUnitName", "pluralUnitName"],
+			"type": "object",
+			"version": "1.0.0"
+		},
+		"dalSchema": {
+			"usedBy": {
+				"nodeId": "skills",
+				"modelId": "Skill"
+			}
+		}
+	},
+  "SkillCategory": {
+		"dataSchema": {
+			"_schema": "http://json-schema.org/draft-04/schema#",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				}
+			},
+			"required": ["name"],
+			"type": "object",
+			"version": "1.0.0"
+		},
+		"dalSchema": {
+			"contains": {
+				"nodeId": "skills",
+				"modelId": "Skill"
+			}
+		}
+	}
+}
