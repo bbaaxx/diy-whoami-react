@@ -11,32 +11,37 @@ module.exports = {
     loaders: [
       {
         test: /\.json$/,
-        loaders: [
-          'json-loader'
-        ]
-      },
-      {
+        loaders: ['json-loader']
+      }, {
+        test: /\.txt$/,
+        loaders: ['raw-loader']
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         enforce: 'pre'
-      },
-      {
+      }, {
         test: /\.(css|scss)$/,
-        loaders: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-          'postcss-loader'
-        ]
-      },
-      {
+        loaders: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+      }, {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+      }, {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader"
+      }, {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: [
-          'react-hot-loader',
-          'babel-loader'
-        ]
+        loaders: ['react-hot-loader', 'babel-loader']
       }
     ]
   },
@@ -44,9 +49,7 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,
-    new HtmlWebpackPlugin({
-      template: conf.path.src('index.html')
-    }),
+    new HtmlWebpackPlugin({template: conf.path.src('index.html')}),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -60,9 +63,5 @@ module.exports = {
     path: path.join(process.cwd(), conf.paths.tmp),
     filename: 'index.js'
   },
-  entry: [
-    'webpack/hot/dev-server',
-    'webpack-hot-middleware/client',
-    `./${conf.path.src('index')}`
-  ]
+  entry: ['webpack/hot/dev-server', 'webpack-hot-middleware/client', `./${conf.path.src('index')}`]
 };

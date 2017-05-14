@@ -9,6 +9,12 @@ module.exports = {
         ]
       },
       {
+        test: /\.txt$/,
+        loaders: [
+          'raw-loader'
+        ]
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',

@@ -13,29 +13,37 @@ module.exports = {
     loaders: [
       {
         test: /\.json$/,
-        loaders: [
-          'json-loader'
-        ]
-      },
-      {
+        loaders: ['json-loader']
+      }, {
+        test: /\.txt$/,
+        loaders: ['raw-loader']
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         enforce: 'pre'
-      },
-      {
+      }, {
         test: /\.(css|scss)$/,
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader?minimize!sass-loader!postcss-loader'
-        })
-      },
-      {
+        loaders: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!sass-loader!postcss-loader'})
+      }, {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+      }, {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader"
+      }, {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: [
-          'babel-loader'
-        ]
+        loaders: ['babel-loader']
       }
     ]
   },
@@ -43,15 +51,17 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,
-    new HtmlWebpackPlugin({
-      template: conf.path.src('index.html')
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    }),
+    new HtmlWebpackPlugin({template: conf.path.src('index.html')}),
+    new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
     new webpack.optimize.UglifyJsPlugin({
-      output: {comments: false},
-      compress: {unused: true, dead_code: true, warnings: false} // eslint-disable-line camelcase
+      output: {
+        comments: false
+      },
+      compress: {
+        unused: true,
+        dead_code: true,
+        warnings: false
+      } // eslint-disable-line camelcase
     }),
     new ExtractTextPlugin('index-[contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),

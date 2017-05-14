@@ -1,22 +1,25 @@
 import React from 'react';
 import {Router, browserHistory} from 'react-router';
 
-import {LayoutContainer} from '../components/Layout/LayoutContainer';
+import {AppLayout} from '../components/Layout/containers/AppLayout';
 
-import {LandingContainer} from '../scenes/Landing/LandingContainer';
 // These are the child routes, these come from somewhere backendie or poddie
-import {ResumePresenterContainer} from '../scenes/Resume/ResumePresenterContainer';
-import {CompanyManagerContainer} from '../scenes/CompanyManager/CompanyManagerContainer';
-import {SkillManagerContainer} from '../scenes/SkillManager/SkillManagerContainer';
-import {SkillCategoryManagerContainer} from '../scenes/SkillManager/SkillCategoryManagerContainer';
-import {SkillUnitManagerContainer} from '../scenes/SkillManager/SkillUnitManagerContainer';
-import App from '../scenes/TodoApp/containers/App';
+import {LandingContainer} from '../pods/Landing/LandingContainer';
+import ResumePresenter from '../pods/Resume/containers/ResumePresenter';
+import ResumeEditor from '../pods/Resume/containers/ResumeEditor';
+
+// non migrated
+import {CompanyManagerContainer} from '../pods/CompanyManager/CompanyManagerContainer';
+import {SkillManagerContainer} from '../pods/SkillManager/SkillManagerContainer';
+import {SkillCategoryManagerContainer} from '../pods/SkillManager/SkillCategoryManagerContainer';
+import {SkillUnitManagerContainer} from '../pods/SkillManager/SkillUnitManagerContainer';
+import App from '../pods/TodoApp/containers/App';
 
 export default function configureRouter() {
   const routes = [
     {
       path: '/',
-      component: LayoutContainer,
+      component: AppLayout,
       indexRoute: {component: LandingContainer},
       childRoutes: getChildRoutes()
     }
@@ -38,11 +41,14 @@ function handleRouteUpdate() {
 function getChildRoutes() {
   return [
     {
-      path: 'my-resume',
-      component: ResumePresenterContainer
-    }, {
       path: 'company-manager',
       component: CompanyManagerContainer
+    }, {
+      path: 'resume',
+      component: ResumePresenter
+    }, {
+      path: 'resume-editor',
+      component: ResumeEditor
     }, {
       path: 'skill-manager',
       component: SkillManagerContainer
