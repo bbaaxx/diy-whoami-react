@@ -15,10 +15,8 @@ export class AppLayout extends Component {
   }
 
   render() {
-    const headerElement = null;
-    // DISABLED: const headerElement = <div>I am the header</div>;
-    const footerElement = null;
-    // DISABLED: const footerElement = <div>I am the footer</div>;
+    const headerElement = <div>I am the header</div>;
+    const footerElement = <div>I am the footer</div>;
     return (
       <MuiThemeProvider muiTheme={customMuiTheme}>
         <AppLayoutComponent
