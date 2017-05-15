@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {getDalInstance} from '../../../services/dataAccessLayer';
 import {DbKeyItem} from './DbKeyItem';
 
@@ -49,7 +50,7 @@ export class DbKeySelector extends Component {
           {this.state.collectionItems.map((item, key) => {
             return (
               <DbKeyItem
-                key={key}
+                key={item._dbKey}
                 arrayKey={key}
                 itemDbKey={item._dbKey}
                 item={item}
@@ -65,8 +66,8 @@ export class DbKeySelector extends Component {
 }
 
 DbKeySelector.propTypes = {
-  name: React.PropTypes.string,
-  formData: React.PropTypes.array,
-  onChange: React.PropTypes.func,
-  formContext: React.PropTypes.object
+  name: PropTypes.string.isRequired,
+  formData: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+  formContext: PropTypes.object.isRequired
 };

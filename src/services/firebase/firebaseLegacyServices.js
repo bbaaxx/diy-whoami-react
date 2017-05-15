@@ -96,7 +96,3 @@ function augmentResponse(snapshot) {
       return item;
     });
 }
-
-// function removeEnhancements() {
-//
-// }

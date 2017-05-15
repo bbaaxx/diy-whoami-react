@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class DbItemView extends Component {
   render() {
@@ -18,5 +19,5 @@ export class DbItemView extends Component {
 }
 
 DbItemView.propTypes = {
-  dbItem: React.PropTypes.object
+  dbItem: PropTypes.object.isRequired
 };

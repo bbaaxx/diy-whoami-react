@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import {DataEdit} from './DataEdit';
 import {getDalInstance} from '../../services/dataAccessLayer';
 
@@ -103,6 +105,6 @@ export class DataEditContainer extends Component {
   }
 }
 DataEditContainer.propTypes = {
-  dataNodeId: React.PropTypes.string.isRequired,
-  dataModelId: React.PropTypes.string.isRequired
+  dataNodeId: PropTypes.string.isRequired,
+  dataModelId: PropTypes.string.isRequired
 };

@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import {ResumeHeading} from './ResumeHeading';
 import {ContactInfoView} from './ContactInfoView';
@@ -23,5 +24,5 @@ export class ResumeLayout extends Component {
 }
 
 ResumeLayout.propTypes = {
-  resume: PropTypes.object
+  resume: PropTypes.object.isRequired
 };

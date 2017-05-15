@@ -32,7 +32,7 @@ export default function avsanResolver(word) {
 
   do {
     c = word[sI++];
-  } while ('"‘’“”$\''.indexOf(c) >= 0); // also terminates on end-of-string "undefined".
+  } while ('"‘’“”$\''.indexOf(c) >= 0); // Also terminates on end-of-string "undefined".
 
   // REFACTOR: this while loop, sucks a bit
   while (node) {

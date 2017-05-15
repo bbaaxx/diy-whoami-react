@@ -1,4 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import {ProfessionalHighlight} from './ProfessionalHighlight';
 
 export class ProfessionalHighlights extends Component {
@@ -7,7 +9,7 @@ export class ProfessionalHighlights extends Component {
     return (
       <div>
         {professionalHighlights && Object.keys(professionalHighlights).map(key => {
-          return (<ProfessionalHighlight professionalHighlight={professionalHighlights[key]} key={key}/>);
+          return (<ProfessionalHighlight key={key} professionalHighlight={professionalHighlights[key]}/>);
         })}
       </div>
     );
@@ -15,5 +17,5 @@ export class ProfessionalHighlights extends Component {
 }
 
 ProfessionalHighlights.propTypes = {
-  resume: PropTypes.object
+  resume: PropTypes.object.isRequired
 };

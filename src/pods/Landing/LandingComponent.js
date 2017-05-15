@@ -1,5 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 import avsanResolver from '../../services/avsan';
+import PropTypes from 'prop-types';
 
 export class LandingComponent extends Component {
   render() {
@@ -20,4 +21,7 @@ export class LandingComponent extends Component {
 
 LandingComponent.propTypes = {
   ownerData: PropTypes.object
+};
+LandingComponent.defaultProps = {
+  ownerData: {}
 };

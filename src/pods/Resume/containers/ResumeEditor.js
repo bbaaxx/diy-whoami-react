@@ -1,7 +1,8 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as ResumeActions from '../actions/index';
+import PropTypes from 'prop-types';
 
 class ResumeEditor extends Component {
   componentDidMount() {

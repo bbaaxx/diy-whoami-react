@@ -8,7 +8,7 @@ import {LandingContainer} from '../pods/Landing/LandingContainer';
 import ResumePresenter from '../pods/Resume/containers/ResumePresenter';
 import ResumeEditor from '../pods/Resume/containers/ResumeEditor';
 
-// non migrated
+// Non migrated
 import {CompanyManagerContainer} from '../pods/CompanyManager/CompanyManagerContainer';
 import {SkillManagerContainer} from '../pods/SkillManager/SkillManagerContainer';
 import {SkillCategoryManagerContainer} from '../pods/SkillManager/SkillCategoryManagerContainer';

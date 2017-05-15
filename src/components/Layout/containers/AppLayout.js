@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {AppLayoutComponent} from '../components/AppLayoutComponent';
 import customMuiTheme from './customMuiTheme';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import PropTypes from 'prop-types';
 
 export class AppLayout extends Component {
   constructor(props) {
@@ -16,9 +16,9 @@ export class AppLayout extends Component {
 
   render() {
     const headerElement = null;
-    // const headerElement = <div>I am the header</div>;
+    // DISABLED: const headerElement = <div>I am the header</div>;
     const footerElement = null;
-    // const footerElement = <div>I am the footer</div>;
+    // DISABLED: const footerElement = <div>I am the footer</div>;
     return (
       <MuiThemeProvider muiTheme={customMuiTheme}>
         <AppLayoutComponent
@@ -32,5 +32,5 @@ export class AppLayout extends Component {
 }
 
 AppLayout.propTypes = {
-  children: React.PropTypes.element
+  children: PropTypes.element.isRequired
 };

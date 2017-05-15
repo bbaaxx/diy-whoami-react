@@ -1,4 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import {SkillView} from './SkillView';
 
 export class SkillsPanel extends Component {
@@ -7,7 +9,7 @@ export class SkillsPanel extends Component {
     return (
       <div>
         {skills && Object.keys(skills).map(key => {
-          return (<SkillView skill={skills[key]} key={key}/>);
+          return (<SkillView key={key} skill={skills[key]}/>);
         })}
       </div>
     );
@@ -15,5 +17,5 @@ export class SkillsPanel extends Component {
 }
 
 SkillsPanel.propTypes = {
-  skills: PropTypes.object
+  skills: PropTypes.object.isRequired
 };

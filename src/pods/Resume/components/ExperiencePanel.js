@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {ExperienceView} from './ExperienceView';
 
 export class ExperiencePanel extends Component {
@@ -7,7 +8,7 @@ export class ExperiencePanel extends Component {
     return (
       <div>
         {jobExperiences && Object.keys(jobExperiences).map(key => {
-          return (<ExperienceView jobExperience={jobExperiences[key]} key={key}/>);
+          return (<ExperienceView key={key} jobExperience={jobExperiences[key]}/>);
         })}
       </div>
     );
@@ -15,5 +16,5 @@ export class ExperiencePanel extends Component {
 }
 
 ExperiencePanel.propTypes = {
-  jobExperiences: PropTypes.object
+  jobExperiences: PropTypes.object.isRequired
 };

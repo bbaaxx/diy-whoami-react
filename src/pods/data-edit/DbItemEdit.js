@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-jsonschema-form';
 import {DbKeySelector} from './custom-fields/DbKeySelector';
 
@@ -32,18 +33,18 @@ export class DbItemEdit extends Component {
 }
 
 DbItemEdit.propTypes = {
-  formValues: React.PropTypes.object,
-  schemas: React.PropTypes.shape({
-    dataSchema: React.PropTypes.object,
-    dalSchema: React.PropTypes.object,
-    uiSchema: React.PropTypes.object
-  }),
-  itemKey: React.PropTypes.oneOfType([
-    React.PropTypes.string, React.PropTypes.number
-  ]),
-  onValueChanges: React.PropTypes.func,
-  onSave: React.PropTypes.func,
-  onError: React.PropTypes.func,
-  onCancel: React.PropTypes.func,
-  onDelete: React.PropTypes.func
+  formValues: PropTypes.object.isRequired,
+  schemas: PropTypes.shape({
+    dataSchema: PropTypes.object,
+    dalSchema: PropTypes.object,
+    uiSchema: PropTypes.object
+  }).isRequired,
+  itemKey: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.number
+  ]).isRequired,
+  onValueChanges: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };

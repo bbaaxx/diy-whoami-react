@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import {createStyleSheet} from 'jss-theme-reactor';
 import customPropTypes from 'material-ui/utils/customPropTypes';
-import Layout from 'material-ui/Layout';
+import Grid from 'material-ui/Grid';
 
 const styleSheet = createStyleSheet('FullWidthLayout', theme => ({
   root: {
@@ -20,29 +20,29 @@ export class AppLayoutComponent extends Component {
     const classes = this.context.styleManager.render(styleSheet);
     return (
       <div className={classes.root}>
-        <Layout container gutter={0}>
+        <Grid container gutter={0}>
           {this.props.headerElement &&
-            (<Layout item xs={12}>
+            (<Grid item xs={12}>
               {this.props.headerElement}
-            </Layout>)}
+            </Grid>)}
           {this.props.routerElement &&
-            (<Layout item xs={12}>
+            (<Grid item xs={12}>
               {this.props.routerElement}
-            </Layout>)}
+            </Grid>)}
           {this.props.footerElement &&
-            (<Layout item xs={12}>
+            (<Grid item xs={12}>
               {this.props.footerElement}
-            </Layout>)}
-        </Layout>
+            </Grid>)}
+        </Grid>
       </div>
     );
   }
 }
 
 AppLayoutComponent.propTypes = {
-  routerElement: PropTypes.element,
-  headerElement: PropTypes.element,
-  footerElement: PropTypes.element
+  routerElement: PropTypes.element.isRequired,
+  headerElement: PropTypes.element.isRequired,
+  footerElement: PropTypes.element.isRequired
 };
 AppLayoutComponent.contextTypes = {
   styleManager: customPropTypes.muiRequired

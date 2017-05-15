@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class ContactInfoView extends Component {
   render() {
@@ -15,5 +16,5 @@ export class ContactInfoView extends Component {
 }
 
 ContactInfoView.propTypes = {
-  resume: PropTypes.object
+  resume: PropTypes.object.isRequired
 };

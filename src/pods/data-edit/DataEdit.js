@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {DbItemContainer} from './DbItemContainer';
+import PropTypes from 'prop-types';
 
 export class DataEdit extends Component {
   render() {
@@ -29,17 +30,17 @@ export class DataEdit extends Component {
 }
 
 DataEdit.propTypes = {
-  dbItems: React.PropTypes.array,
-  newDbItems: React.PropTypes.array,
-  schemas: React.PropTypes.shape({
-    dataSchema: React.PropTypes.object,
-    dalSchema: React.PropTypes.object,
-    uiSchema: React.PropTypes.object
-  }),
-  uiModelName: React.PropTypes.string,
-  onAddNewItem: React.PropTypes.func,
-  onCancelAddNewItem: React.PropTypes.func,
-  onCreateDbItem: React.PropTypes.func,
-  onUpdateDbItem: React.PropTypes.func,
-  onDeleteDbItem: React.PropTypes.func
+  dbItems: PropTypes.array.isRequired,
+  newDbItems: PropTypes.array.isRequired,
+  schemas: PropTypes.shape({
+    dataSchema: PropTypes.object.isRequired,
+    dalSchema: PropTypes.object.isRequired,
+    uiSchema: PropTypes.object.isRequired
+  }).isRequired,
+  uiModelName: PropTypes.string.isRequired,
+  onAddNewItem: PropTypes.func.isRequired,
+  onCancelAddNewItem: PropTypes.func.isRequired,
+  onCreateDbItem: PropTypes.func.isRequired,
+  onUpdateDbItem: PropTypes.func.isRequired,
+  onDeleteDbItem: PropTypes.func.isRequired
 };

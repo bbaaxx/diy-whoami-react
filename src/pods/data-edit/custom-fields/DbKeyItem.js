@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class DbKeyItem extends Component {
   constructor(props) {
@@ -26,11 +27,11 @@ export class DbKeyItem extends Component {
 }
 
 DbKeyItem.propTypes = {
-  isSelected: React.PropTypes.bool,
-  onSelect: React.PropTypes.func.isRequired,
-  item: React.PropTypes.object.isRequired,
-  itemDbKey: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
+  isSelected: PropTypes.bool.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired,
+  itemDbKey: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
   ]).isRequired
 };

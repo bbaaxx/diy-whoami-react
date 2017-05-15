@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE} from '../constants/TodoFilters';
 
@@ -56,9 +57,9 @@ class Footer extends Component {
         {this.renderTodoCount()}
         <ul className="filters">
           {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter =>
-            <li key={filter}>
+            (<li key={filter}>
               {this.renderFilterLink(filter)}
-            </li>
+            </li>)
           )}
         </ul>
         {this.renderClearButton()}

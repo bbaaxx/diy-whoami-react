@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class ExperienceView extends Component {
   render() {
@@ -10,13 +11,9 @@ export class ExperienceView extends Component {
         {jobExperience.employer}
       </div>
     );
-    // return (
-    //   <div>{jobExperience.title}</div>
-    // );
   }
 }
 
 ExperienceView.propTypes = {
-  jobExperience: PropTypes.object
-  // jobExperience: PropTypes.object.isRequired
+  jobExperience: PropTypes.object.isRequired
 };

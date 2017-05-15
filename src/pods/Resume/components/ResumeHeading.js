@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class ResumeHeading extends Component {
   render() {
@@ -16,5 +17,5 @@ export class ResumeHeading extends Component {
 }
 
 ResumeHeading.propTypes = {
-  resume: PropTypes.object
+  resume: PropTypes.object.isRequired
 };

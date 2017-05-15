@@ -5,7 +5,7 @@ import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-// store is todapp only for now thus is imported here from its pod
+// Store is todapp only for now thus is imported here from its pod
 import configureStore from './store/configureStore';
 import configureRouter from './router/configureRouter';
 
