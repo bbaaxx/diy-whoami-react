@@ -6,7 +6,12 @@ import rootReducer from '../reducers/index';
 const logger = createLogger();
 
 export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger));
+  const store = createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(thunk, logger)
+  );
+
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
@@ -14,5 +19,6 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextReducer);
     });
   }
+
   return store;
 }

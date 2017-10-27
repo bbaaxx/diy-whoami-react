@@ -10,14 +10,16 @@ import {ProfessionalHighlights} from './ProfessionalHighlights';
 export class ResumeLayout extends Component {
   render() {
     const {resume} = this.props;
+    const {skills} = resume;
+    const {jobExperiences} = resume;
 
     return (
       <div>
         <ResumeHeading resume={resume}/>
         <ContactInfoView resume={resume}/>
         <ProfessionalHighlights resume={resume}/>
-        <ExperiencePanel jobExperiences={resume.jobExperiences}/>
-        <SkillsPanel skills={resume.skills}/>
+        {jobExperiences && (<ExperiencePanel jobExperiences={jobExperiences}/>)}
+        {skills && (<SkillsPanel skills={skills}/>)}
       </div>
     );
   }

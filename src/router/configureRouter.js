@@ -1,7 +1,5 @@
 import React from 'react';
-import {Router, browserHistory} from 'react-router';
-
-import {AppLayout} from '../components/Layout/containers/AppLayout';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 // These are the child routes, these come from somewhere backendie or poddie
 import {LandingContainer} from '../pods/Landing/LandingContainer';
@@ -16,51 +14,28 @@ import {SkillUnitManagerContainer} from '../pods/SkillManager/SkillUnitManagerCo
 import App from '../pods/TodoApp/containers/App';
 
 export default function configureRouter() {
-  const routes = [
-    {
-      path: '/',
-      component: AppLayout,
-      indexRoute: {component: LandingContainer},
-      childRoutes: getChildRoutes()
-    }
-  ];
-
   return (
-    <Router
-      history={browserHistory}
-      routes={routes}
-      onUpdate={handleRouteUpdate}
-      />
+    <div>
+      <Router>
+        {getChildRoutes()}
+      </Router>
+    </div>
   );
 }
 
-function handleRouteUpdate() {
-  console.log('Route state updated');
-}
-
 function getChildRoutes() {
-  return [
-    {
-      path: 'company-manager',
-      component: CompanyManagerContainer
-    }, {
-      path: 'resume',
-      component: ResumePresenter
-    }, {
-      path: 'resume-editor',
-      component: ResumeEditor
-    }, {
-      path: 'skill-manager',
-      component: SkillManagerContainer
-    }, {
-      path: 'skill-unit-manager',
-      component: SkillUnitManagerContainer
-    }, {
-      path: 'skill-category-manager',
-      component: SkillCategoryManagerContainer
-    }, {
-      path: 'todoapp',
-      component: App
-    }
-  ];
+  return (
+    <div>
+      <Route exact path="/" component={LandingContainer}/>
+
+      <Route path="/resume" component={ResumePresenter}/>
+      <Route path="/skill-manager" component={SkillManagerContainer}/>
+      <Route path="/resume-editor" component={ResumeEditor}/>
+      <Route path="/company-manager" component={CompanyManagerContainer}/>
+      <Route path="/skill-unit-manager" component={SkillUnitManagerContainer}/>
+      <Route path="/skill-category-manager" component={SkillCategoryManagerContainer}/>
+
+      <Route path="/todo" component={App}/>
+    </div>
+  );
 }

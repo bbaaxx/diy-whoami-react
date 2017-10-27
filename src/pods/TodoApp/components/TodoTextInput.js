@@ -55,10 +55,15 @@ class TodoTextInput extends Component {
 
 TodoTextInput.propTypes = {
   onSave: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  editing: PropTypes.bool.isRequired,
-  newTodo: PropTypes.bool.isRequired
+  newTodo: PropTypes.bool.isRequired,
+  text: PropTypes.string,
+  editing: PropTypes.bool
+};
+
+TodoTextInput.defaultProps = {
+  editing: false,
+  text: ''
 };
 
 export default TodoTextInput;

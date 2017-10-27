@@ -11,6 +11,8 @@ const TODO_FILTERS = {
   [SHOW_COMPLETED]: todo => todo.completed
 };
 
+console.log('TODO_FILTERS', TODO_FILTERS);
+
 class MainSection extends Component {
   constructor(props, context) {
     super(props, context);
